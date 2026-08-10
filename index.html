@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echo's World 🐾 | 汪星人 Echo 的秘密基地</title>
-    <!-- Google Fonts 引入圓潤親切字體 -->
+    <!-- Google Fonts: Sniglet/Fredoka (Display) + DM Sans & Noto Sans TC (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@400;600;700&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 頂部導覽列 -->
+    <!-- 頂部導覽列 (Floating Top Navigation) -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Echo's World 🐾</a>
+            <a href="#" class="logo">
+                <span class="logo-icon">☕</span> Echo's World <span class="logo-badge">🐾</span>
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="切換選單">
                 <span></span>
                 <span></span>
@@ -23,10 +25,10 @@
             </button>
             <nav class="nav-menu" id="navMenu">
                 <ul>
-                    <li><a href="#about">關於 Echo</a></li>
-                    <li><a href="#gallery">生活寫真</a></li>
-                    <li><a href="#funfacts">日常怪癖</a></li>
-                    <li><a href="#guestbook">給 Echo 留言</a></li>
+                    <li><a href="#about" class="nav-link">關於 Echo</a></li>
+                    <li><a href="#gallery" class="nav-link">生活寫真</a></li>
+                    <li><a href="#funfacts" class="nav-link">日常怪癖</a></li>
+                    <li><a href="#guestbook" class="btn btn-dark nav-cta">給 Echo 留言 💌</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,17 +38,16 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
-                <span class="badge">WOF! 歡迎光臨 ✨</span>
-                <h1>你好！我是 <span class="highlight">Echo</span> 🐶</h1>
-                <p>一隻充滿活力的狗狗！這裡上記錄了我每天吃飯、睡覺、賣萌與拆家的快樂生活。</p>
+                <div class="badge">WOF! 歡迎光臨 ✨</div>
+                <h1 class="display-title">你好！我是 <span class="highlight">Echo</span> 🐶</h1>
+                <p class="hero-subtitle">一隻充滿活力的狗狗！這裡上記錄了我每天吃飯、睡覺、賣萌與拆家的快樂生活。</p>
                 <div class="hero-buttons">
                     <button id="petBtn" class="btn btn-primary">摸摸 Echo 🐾 (<span id="petCount">0</span>)</button>
-                    <a href="#about" class="btn btn-secondary">認識我更多 👇</a>
+                    <a href="#about" class="btn btn-outline">認識我更多 👇</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-wrapper">
-                    <!-- 使用優質狗狗圖片 placeholder -->
+                <div class="sticker-frame">
                     <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" alt="Echo 的可愛照片">
                 </div>
             </div>
@@ -56,27 +57,29 @@
     <!-- 關於 Echo 區塊 -->
     <section id="about" class="section about-section">
         <div class="container">
-            <h2 class="section-title">關於 Echo 🦴</h2>
-            <p class="section-subtitle">關於我的基本檔案資料</p>
+            <div class="section-header">
+                <h2 class="display-heading">關於 Echo 🦴</h2>
+                <p class="section-subtitle">關於我的基本檔案資料</p>
+            </div>
             
             <div class="card-grid">
-                <div class="info-card">
+                <div class="sticker-card">
                     <div class="card-icon">🎂</div>
                     <h3>基本檔案</h3>
                     <p><strong>星座：</strong> 活力滿滿的狗狗座</p>
                     <p><strong>個性：</strong> 活潑、親人、極度貪吃</p>
                 </div>
-                <div class="info-card">
+                <div class="sticker-card">
                     <div class="card-icon">🍖</div>
                     <h3>最愛美食</h3>
                     <p>肉乾、起司凍乾、鮮肉罐罐，還有主人盤子裡的任何東西（敲碗！）</p>
                 </div>
-                <div class="info-card">
+                <div class="sticker-card">
                     <div class="card-icon">🎾</div>
                     <h3>興趣愛好</h3>
                     <p>公園狂奔、追球球、曬太陽、還有在沙發上翻滾爆衝。</p>
                 </div>
-                <div class="info-card">
+                <div class="sticker-card">
                     <div class="card-icon">🌟</div>
                     <h3>特殊技能</h3>
                     <p>坐下、握手、用可憐兮兮的眼神討零食（成功率 100%）。</p>
@@ -88,26 +91,34 @@
     <!-- 生活寫真牆 -->
     <section id="gallery" class="section gallery-section">
         <div class="container">
-            <h2 class="section-title">生活寫真牆 📸</h2>
-            <p class="section-subtitle">抓拍 Echo 的每一個萌爆瞬間</p>
+            <div class="section-header">
+                <h2 class="display-heading">生活寫真牆 📸</h2>
+                <p class="section-subtitle">抓拍 Echo 的每一個萌爆瞬間</p>
+            </div>
 
             <div class="gallery-grid">
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Echo 曬太陽">
+                <div class="sticker-card photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Echo 曬太陽">
+                    </div>
                     <div class="gallery-info">
                         <h3>陽光下的午睡</h3>
                         <p>曬太陽是每天最神聖的儀式 ☀️</p>
                     </div>
                 </div>
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=600&q=80" alt="Echo 玩耍">
+                <div class="sticker-card photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=600&q=80" alt="Echo 玩耍">
+                    </div>
                     <div class="gallery-info">
                         <h3>公園放風時間</h3>
                         <p>今天又是跑贏所有狗勾的一天！🏃‍♂️</p>
                     </div>
                 </div>
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80" alt="Echo 呆萌樣">
+                <div class="sticker-card photo-card">
+                    <div class="photo-wrapper">
+                        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80" alt="Echo 呆萌樣">
+                    </div>
                     <div class="gallery-info">
                         <h3>討吃專用眼神</h3>
                         <p>這樣看著你，你忍心不給我肉肉嗎？🥺</p>
@@ -117,30 +128,35 @@
         </div>
     </section>
 
-    <!-- 日常怪癖與秘密 -->
+    <!-- 日常怪癖與秘密 (Oat Surface Block) -->
     <section id="funfacts" class="section funfacts-section">
         <div class="container">
-            <h2 class="section-title">Echo 的日常怪癖與祕密 🤫</h2>
-            <div class="facts-list">
-                <div class="fact-item">
-                    <span class="fact-number">01</span>
-                    <div class="fact-content">
-                        <h3>睡覺會打呼跟夢跑</h3>
-                        <p>睡著時腳腳會一直抽動，偶爾還會發出咕嚕咕嚕的打呼聲，不知道在夢裡追什麼！</p>
-                    </div>
+            <div class="oat-feature-card">
+                <div class="section-header">
+                    <h2 class="display-heading">Echo 的日常怪癖與祕密 🤫</h2>
+                    <p class="section-subtitle">這些只有在家裡才會暴露的小秘密！</p>
                 </div>
-                <div class="fact-item">
-                    <span class="fact-number">02</span>
-                    <div class="fact-content">
-                        <h3>聽到「洗澡」秒變聽力障礙</h3>
-                        <p>平時聽到「肉肉」連隔壁房都衝過來，但只要說「洗澡」，就會瞬間消失在床底。</p>
+                <div class="facts-list">
+                    <div class="fact-item">
+                        <span class="fact-number">01</span>
+                        <div class="fact-content">
+                            <h3>睡覺會打呼跟夢跑</h3>
+                            <p>睡著時腳腳會一直抽動，偶爾還會發出咕嚕咕嚕的打呼聲，不知道在夢裡追什麼！</p>
+                        </div>
                     </div>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-number">03</span>
-                    <div class="fact-content">
-                        <h3>一定要咬著玩具迎賓</h3>
-                        <p>只要有人回家，一定會叼著最愛的玩偶開心地搖尾巴跳舞迎接。</p>
+                    <div class="fact-item">
+                        <span class="fact-number">02</span>
+                        <div class="fact-content">
+                            <h3>聽到「洗澡」秒變聽力障礙</h3>
+                            <p>平時聽到「肉肉」連隔壁房都衝過來，但只要說「洗澡」，就會瞬間消失在床底。</p>
+                        </div>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-number">03</span>
+                        <div class="fact-content">
+                            <h3>一定要咬著玩具迎賓</h3>
+                            <p>只要有人回家，一定會叼著最愛的玩偶開心地搖尾巴跳舞迎接。</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,18 +166,20 @@
     <!-- 留言板 -->
     <section id="guestbook" class="section guestbook-section">
         <div class="container">
-            <h2 class="section-title">給 Echo 留個言吧 💌</h2>
-            <p class="section-subtitle">留下你想對 Echo 說的話！</p>
+            <div class="section-header">
+                <h2 class="display-heading">給 Echo 留個言吧 💌</h2>
+                <p class="section-subtitle">留下你想對 Echo 說的話！</p>
+            </div>
 
-            <div class="guestbook-wrapper">
+            <div class="guestbook-wrapper sticker-card">
                 <form id="messageForm" class="message-form">
                     <div class="form-group">
                         <label for="nickname">你的名字 / 稱呼</label>
-                        <input type="text" id="nickname" placeholder="例如：愛狗小幫手" required>
+                        <input type="text" id="nickname" class="pill-input" placeholder="例如：愛狗小幫手" required>
                     </div>
                     <div class="form-group">
                         <label for="message">想對 Echo 說的話</label>
-                        <textarea id="message" rows="4" placeholder="例如：Echo 好可愛！祝你每天都有肉肉吃～" required></textarea>
+                        <textarea id="message" class="pill-input textarea-input" rows="4" placeholder="例如：Echo 好可愛！祝你每天都有肉肉吃～" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">傳送留言 🐾</button>
                 </form>
@@ -169,7 +187,6 @@
                 <div class="messages-display">
                     <h3>最新留言</h3>
                     <div id="messagesList" class="messages-list">
-                        <!-- JS 會動態將新留言插入這裡 -->
                         <div class="message-card">
                             <div class="message-header">
                                 <strong>狗勾粉絲團</strong>
@@ -183,10 +200,11 @@
         </div>
     </section>
 
-    <!-- 頁尾 -->
+    <!-- 頁尾 (Blue Wash Surface) -->
     <footer class="footer">
         <div class="container">
-            <p>Made with ❤️ for <strong>Echo</strong> | 汪星人專屬基地</p>
+            <p class="footer-title">Made with ❤️ for <strong>Echo</strong></p>
+            <p>汪星人專屬基地 · Warm Café Craft Style</p>
             <p class="copyright">© 2026 Echo's World. All Rights Reserved.</p>
         </div>
     </footer>

@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
         });
 
-        // 點擊選單連結後自動關閉選單
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -27,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             count++;
             petCount.textContent = count;
 
-            // 觸發可愛的動態浮動字樣
             createFloatingText(e.clientX, e.clientY, '🐾 汪！');
         });
     }
@@ -38,23 +36,28 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.position = 'fixed';
         el.style.left = `${x}px`;
         el.style.top = `${y}px`;
-        el.style.color = '#FB8500';
+        el.style.color = '#202020';
+        el.style.backgroundColor = '#aac9f7';
+        el.style.border = '2px solid #000000';
+        el.style.borderRadius = '9999px';
+        el.style.padding = '4px 12px';
+        el.style.fontFamily = "'Sniglet', cursive, sans-serif";
         el.style.fontWeight = 'bold';
-        el.style.fontSize = '1.2rem';
+        el.style.fontSize = '1.1rem';
         el.style.pointerEvents = 'none';
-        el.style.transition = 'all 1s ease-out';
+        el.style.transition = 'all 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
         el.style.zIndex = '9999';
 
         document.body.appendChild(el);
 
         setTimeout(() => {
-            el.style.transform = 'translateY(-50px)';
+            el.style.transform = 'translateY(-60px) scale(1.1)';
             el.style.opacity = '0';
         }, 20);
 
         setTimeout(() => {
             el.remove();
-        }, 1000);
+        }, 850);
     }
 
     // 3. 留言表單動態提交處理
@@ -63,13 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (messageForm && messagesList) {
         messageForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // 防止頁面重整
+            e.preventDefault();
 
             const nickname = document.getElementById('nickname').value.trim();
             const message = document.getElementById('message').value.trim();
 
             if (nickname && message) {
-                // 建立新的留言卡片
                 const newCard = document.createElement('div');
                 newCard.className = 'message-card';
                 newCard.innerHTML = `
@@ -80,16 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>${escapeHTML(message)}</p>
                 `;
 
-                // 插入到最前面
                 messagesList.prepend(newCard);
-
-                // 清空輸入框
                 messageForm.reset();
             }
         });
     }
 
-    // 簡單的 HTML 轉義以防 XSS
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g, 
             tag => ({
